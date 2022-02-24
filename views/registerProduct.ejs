@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Register Product</title>
+</head>
+<body>
+    <div class="bg-img">
+        <h1>Register Product</h1>
+        <form class="container" method="POST">
+            <b>Nombre del producto</b>
+            <input type="text" placeholder="Nombre del producto" name="productName" required>
+            <b>Descripcion</b>
+            <input type="text" placeholder="Descripcion" name="productDescription" required> 
+            <b>Precio</b>
+            <input type="text" placeholder="Precio" name="productPrice" required> 
+            <b>Cantidad</b>
+            <input type="text" placeholder="Cantidad" name="productQuantity" required>
+            <div>
+                <b>Entregable?</b>
+                <input type="checkbox" name="productDeliver" value="1" id="check">
+            </div>
+            <b>Vendedor</b>
+            <input type="text" placeholder="Vendedor" name="productSeller" required>
+            <button type="submit" class="button">Register Product</button>
+        </form>
+    </div>
+</body>
+</html>

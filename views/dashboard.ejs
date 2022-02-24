@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="bg-img">
+        <h1>Dashboard</h1>
+        <h3>Welcome <%= user.username %>!</h3>
+        <% if(user.username == 'admin') { %>
+            <button>
+                <a href="/register">Register User</a>
+            </button>
+        <% } %>
+        <button>
+            <a href="/registerProduct">Register Product</a>
+        </button>
+        <button>
+            <a href="/">Logout</a>
+        </button>
+    </div>
+</body>
+</html>
