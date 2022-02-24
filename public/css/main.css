@@ -23,7 +23,6 @@ h1 {
     margin: 0;
 }
  
-/* styling background image */
 .bg-img {
     background-image: url("assets/Grogu.png");
     min-height: 380px;
@@ -31,7 +30,6 @@ h1 {
     height: 100vh;
 }
 
-/* Styling the form container */
 .container {
     position: absolute;
     left: 28px;
@@ -47,7 +45,6 @@ b {
     -webkit-text-stroke: 1px black;
 }
 
-/* Full-width input */
 input[type=text],
 input[type=password] {
     width: 100%;
@@ -56,9 +53,6 @@ input[type=password] {
     border: 2px solid green;
 }
  
-
-
-/* Styling the submit button */
 .button {
     background-color: green;
     color: white;

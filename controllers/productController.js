@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const Product = require("../models/Product");
 
-
 const registerProductView = (req, res) => {
     res.render("registerProduct", {
     } );
@@ -33,8 +32,7 @@ const registerProduct = (req, res) => {
             }
         });
     }
-};  
-
+};
 
 module.exports =  {
     registerProductView,

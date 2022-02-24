@@ -1,7 +1,6 @@
 const passport = require('passport');
 
 
-
 const loginView = (req, res) => {
     res.render("login", {
     } );
