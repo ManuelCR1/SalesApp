@@ -17,7 +17,6 @@ const login = require('./routes/login')
 const register = require('./routes/register')
 const dashboard = require('./routes/dashboard')
 
-
 const database = process.env.MONGOLAB_URI;
 
 app.use(express.urlencoded({extended: false}));

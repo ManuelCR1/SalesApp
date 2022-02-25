@@ -5,7 +5,9 @@ const {registerView, registerUser } = require('../controllers/registerController
 const { dashboardView } = require('../controllers/dashboardController');
 const { registerProductView, registerProduct } = require('../controllers/productController');
 const { protectRoute } = require("../auth/protect");
+const {reportView} = require('../controllers/reportController');
 
+loginRouter.get('/report', reportView);
 
 
 loginRouter.get('/', loginView);

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Report</title>
+</head>
+<body>
+    <div class="bg-img">
+        <h1>Report</h1>
+        <h3>Here is weekly the report!</h3>
+
+        <h4>How much was sold?</h4>
+            <table>
+                <tr><td>Product</td><td>Price</td></tr>
+                <% products.forEach(function (products) { %>   
+                <tr><td><%= products.name %></td> <td>$ <%= products.price %></td></tr>
+                <% }) %>
+                <tr><td>Total</td><td>$ <%= totalCost %></td></tr>
+            </table>
+        <h4>Who sell the most?</h4>
+
+        
+
+        <h4>Top five best sell products</h4>
+
+    </div>
+</body>
+</html>
