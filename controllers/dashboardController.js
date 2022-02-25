@@ -11,7 +11,7 @@ const dashboardView = (req, res) => {
     } else {
         console.log("Usuario no existe");
     }
-    });
+  });
 };
 
 

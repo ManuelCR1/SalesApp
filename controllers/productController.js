@@ -8,7 +8,6 @@ const registerProductView = (req, res) => {
 }
 
 const registerProduct = (req, res) => {
-    console.log("************", req.body);
     const { productName, productDescription, productPrice, productQuantity, productDeliver, productSeller } = req.body;
     if (!productName || !productDescription || !productPrice || !productQuantity || !productSeller) {
       console.log("Fill empty fields");
