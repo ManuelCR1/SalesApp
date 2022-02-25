@@ -1,8 +1,8 @@
+const Product = require("../models/Product");
 
 const dashboardView = (req, res) => {
-    console.log(req);
     res.render("dashboard", {
-      user: req.user
+      user: req.user,
     });
 };
 
