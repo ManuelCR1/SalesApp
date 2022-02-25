@@ -8,23 +8,35 @@
 <body>
     <div class="bg-img">
         <h1>Register Product</h1>
-        <form class="container" method="POST">
-            <b>Nombre del producto</b>
-            <input type="text" placeholder="Nombre del producto" name="productName" required>
-            <b>Descripcion</b>
-            <input type="text" placeholder="Descripcion" name="productDescription" required> 
-            <b>Precio</b>
-            <input type="text" placeholder="Precio" name="productPrice" required> 
-            <b>Cantidad</b>
-            <input type="text" placeholder="Cantidad" name="productQuantity" required>
-            <div>
-                <b>Entregable?</b>
-                <input type="checkbox" name="productDeliver" value="1" id="check">
-            </div>
-            <b>Vendedor</b>
-            <input type="text" placeholder="Vendedor" name="productSeller" required>
-            <button type="submit" class="button">Register Product</button>
-        </form>
+            <h3>Welcome <%= user.username %>!</h3>
+            <% if(user.username == 'admin') { %>
+                <button>
+                    <a href="/register">Register User</a>
+                </button>
+            <% } %>
+            <button>
+                <a href="/dashboard">Dashboard</a>
+            </button>
+            <button>
+                <a href="/">Logout</a>
+            </button>
+            <form class="container" method="POST">
+                <b>Nombre del producto</b>
+                <input type="text" placeholder="Nombre del producto" name="productName" required>
+                <b>Descripcion</b>
+                <input type="text" placeholder="Descripcion" name="productDescription" required> 
+                <b>Precio</b>
+                <input type="text" placeholder="Precio" name="productPrice" required> 
+                <b>Cantidad</b>
+                <input type="text" placeholder="Cantidad" name="productQuantity" required>
+                <div>
+                    <b>Entregable?</b>
+                    <input type="checkbox" name="productDeliver" value="1" id="check">
+                </div>
+                <b>Vendedor</b>
+                <input type="text" placeholder="Vendedor" name="productSeller" required>
+                <button type="submit" class="button">Register Product</button>
+            </form>
     </div>
 </body>
 </html>

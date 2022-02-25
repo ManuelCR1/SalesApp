@@ -3,6 +3,7 @@ const Product = require("../models/Product");
 
 const registerProductView = (req, res) => {
     res.render("registerProduct", {
+        user: req.user
     } );
 }
 
@@ -25,7 +26,9 @@ const registerProduct = (req, res) => {
                 });
                 newProduct
                 .save()
-                .then( res.redirect("/dashboard"))
+                .then( res.redirect("/dashboard", {
+                    user: req.user
+                  }))
                 .catch((err) => console.log(err));
             } else {
                 console.log("Usuario no existe");
