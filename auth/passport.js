@@ -1,18 +1,17 @@
 const bcrypt = require("bcryptjs");
 LocalStrategy = require("passport-local").Strategy;
-//Load model
 const User = require("../models/User");
+
+
 const loginCheck = passport => {
   passport.use(
     new LocalStrategy({ usernameField: "username" }, (username, password, done) => {
-      //Check customer
       User.findOne({ username: username })
         .then((user) => {
           if (!user) {
             console.log("wrong username");
             return done();
           }
-          //Match Password
           bcrypt.compare(password, user.password, (error, isMatch) => {
             if (error) throw error;
             if (isMatch) {

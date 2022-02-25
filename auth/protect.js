@@ -2,7 +2,7 @@
 
 const protectRoute = (req, res, next) => {
   console.log(req.isAuthenticated());
-    if (true /*req.isAuthenticated() */) {
+    if (true /*req.isAuthenticated() */) { //Descomentar
       return next();
     }
     console.log('Please log in to continue');

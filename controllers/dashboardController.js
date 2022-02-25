@@ -1,9 +1,18 @@
+const Product = require("../models/Product");
+const User = require("../models/User");
 
 const dashboardView = (req, res) => {
-    console.log(req);
-    res.render("dashboard", {
-      user: req.user
-    });
+  Product.find().then((product) => {
+    if (product) {
+        console.log(product);
+        res.render("dashboard", {
+          user: req.user,
+          product: product,
+        });
+    } else {
+        console.log("Usuario no existe");
+    }
+  });
 };
 
 

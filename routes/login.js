@@ -9,6 +9,10 @@ const {reportView} = require('../controllers/reportController');
 
 loginRouter.get('/report', reportView);
 
+const { sellView, sellProduct } = require("../controllers/sellController");
+
+loginRouter.get('/sell', sellView);
+loginRouter.post('/sell', sellProduct);
 
 loginRouter.get('/', loginView);
 loginRouter.post('/', loginUser);

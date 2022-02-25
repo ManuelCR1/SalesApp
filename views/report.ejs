@@ -11,18 +11,24 @@
         <h3>Here is weekly the report!</h3>
 
         <h4>How much was sold?</h4>
-            <table>
-                <tr><td>Product</td><td>Price</td></tr>
-                <% products.forEach(function (products) { %>   
-                <tr><td><%= products.name %></td> <td>$ <%= products.price %></td></tr>
-                <% }) %>
-                <tr><td>Total</td><td>$ <%= totalCost %></td></tr>
-            </table>
+            <p>Total: $ <%= totalCost %></p>
         <h4>Who sell the most?</h4>
 
-        
+            <p>Best Seller: <%= bestSeller %></p>
 
         <h4>Top five best sell products</h4>
+        
+        <table>
+            <tr><td>Product Name</td><td>Number of sales</td></tr>
+            <% var i = 0%>
+            <% for(var [key, value] of bestProduct) { %>
+                <% if (i == 5) { %>
+                    <% break %>
+                <%}%>
+               <tr><td><%= key %></td><td><%= value %></td></tr>
+               <% i += 1%>
+            <% } %>
+        </table>
 
     </div>
 </body>
