@@ -25,14 +25,12 @@ const registerProduct = (req, res) => {
                 });
                 newProduct
                 .save()
-                .then( res.redirect("/dashboard", {
-                    user: req.user
-                  }))
+                .then( res.redirect("/dashboard"))
                 .catch((err) => console.log(err));
             } else {
                 console.log("Usuario no existe");
             }
-        });
+        }); 
     }
 };
 

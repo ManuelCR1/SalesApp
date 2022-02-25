@@ -8,6 +8,11 @@
 <body>
     <div class="bg-img">
         <h1>Report</h1>
+        <% if(user.username == 'admin') { %>
+            <button>
+                <a href="/dashboard">Dashboard</a>
+            </button>
+        <% } %>
         <h3>Here is weekly the report!</h3>
 
         <h4>How much was sold?</h4>
