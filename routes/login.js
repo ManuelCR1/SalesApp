@@ -5,8 +5,10 @@ const {registerView, registerUser } = require('../controllers/registerController
 const { dashboardView } = require('../controllers/dashboardController');
 const { registerProductView, registerProduct } = require('../controllers/productController');
 const { protectRoute } = require("../auth/protect");
+const { sellView, sellProduct } = require("../controllers/sellController");
 
-
+loginRouter.get('/sell', sellView);
+loginRouter.post('/sell', sellProduct);
 
 loginRouter.get('/', loginView);
 loginRouter.post('/', loginUser);
