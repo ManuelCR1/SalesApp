@@ -36,7 +36,7 @@ const registerUser = (req, res) => {
                         newUser.password = hash;
                         newUser
                             .save()
-                            .then( res.redirect("/dashboard"))
+                            .then( res.redirect("/"))
                             .catch((err) => console.log(err));
                     })
                 );

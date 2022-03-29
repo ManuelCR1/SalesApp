@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="bg-img">
+        <h1>Dashboard</h1>
+        <h3>Welcome <%= user.username %>!</h3>
+        <button>
+            <a href="/dashboard">Dashboard</a>
+        </button>
+        <br>
+        <div class="catalogo">
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Location</th>
+                    <th>Schedule</th>
+                    <th>Description</th>
+                    <th>User</th>
+                </tr>
+                <% for (var i=0; i < requests.length; i++ ) { %>
+                <tr>
+                    <td><%= requests[i].service %></td>
+                    <td><%= requests[i].location %></td>
+                    <td><%= requests[i].schedule %></td>
+                    <td><%= requests[i].description %></td>
+                    <td><%= requests[i].user.username %></td>
+                    <% if(user.username == 'admin') { %>
+                        <td><a class="status" href="/request/request/?id=<%= requests[i]._id %>">Satus: Requested</a></td>
+                        <td><a class="status" href="/request/progress/?id=<%= requests[i]._id %>">Satus: In Progress</a></td>
+                        <td><a class="status" href="/request/cancel/?id=<%= requests[i]._id %>">Satus: Canceled</a></td>
+                        <td><a class="status" href="/request/finish/?id=<%= requests[i]._id %>">Satus: Finished</a></td>
+                    <% } %>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

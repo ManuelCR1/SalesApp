@@ -3,16 +3,11 @@ const loginRouter = express.Router();
 const {loginView, loginUser } = require('../controllers/loginController');
 const {registerView, registerUser } = require('../controllers/registerController');
 const { dashboardView } = require('../controllers/dashboardController');
-const { registerProductView, registerProduct } = require('../controllers/productController');
 const { protectRoute } = require("../auth/protect");
-const {reportView} = require('../controllers/reportController');
 
-loginRouter.get('/report', reportView);
+const { registerRequestView, viewRequests, registerRequest, changeStatusRequest, changeStatusProgress, changeStatusCancel, changeStatusFinish } = require("../controllers/requestController");
 
-const { sellView, sellProduct } = require("../controllers/sellController");
 
-loginRouter.get('/sell', sellView);
-loginRouter.post('/sell', sellProduct);
 
 loginRouter.get('/', loginView);
 loginRouter.post('/', loginUser);
@@ -23,9 +18,16 @@ loginRouter.post('/login', loginUser);
 loginRouter.get('/register', registerView);
 loginRouter.post('/register', registerUser);
 
-loginRouter.get("/registerProduct", registerProductView);
-loginRouter.post("/registerProduct", registerProduct);
-
 loginRouter.get("/dashboard", protectRoute, dashboardView);
+
+loginRouter.get('/viewRequests', viewRequests);
+
+loginRouter.get('/registerRequest', registerRequestView);
+loginRouter.post('/registerRequest', registerRequest);
+
+loginRouter.get('/request/request', changeStatusRequest);
+loginRouter.get('/request/progress', changeStatusProgress);
+loginRouter.get('/request/cancel', changeStatusCancel);
+loginRouter.get('/request/finish', changeStatusFinish);
 
 module.exports = loginRouter;

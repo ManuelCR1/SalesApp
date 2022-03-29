@@ -14,8 +14,6 @@ dotenv.config();
 
 //Routes
 const login = require('./routes/login')
-const register = require('./routes/register')
-const dashboard = require('./routes/dashboard')
 
 const database = process.env.MONGOLAB_URI;
 
@@ -39,8 +37,6 @@ app.use(passport.initialize());
 app.use(passport.session())
 
 app.use('/', login);
-app.use('/dashboard', dashboard);
-app.use('/register', register);
 
 
 app.listen(PORT, console.log("Server start on port: " + PORT))

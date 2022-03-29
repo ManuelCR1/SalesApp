@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Generate Requests</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-img">
+        <h1>Generate Requests</h1>
+            <h3>Welcome <%= user.username %>!</h3>
+            <button>
+                <a href="/dashboard">Dashboard</a>
+            </button>
+            <button onclick="generate()">Generate request</button>
+            <button onclick="general()" class="hidden categoria">General</button>
+            <button onclick="falla()" class="hidden categoria">Falla</button>
+            <button onclick="otro()" class="hidden categoria">Otro</button>
+            
+            <button onclick="red()" class="hidden categoriaGeneralFinal" id="red">Red</button>
+            <button onclick="instalacionSoftware()" class="hidden categoriaGeneralFinal" id="instalacionSoftware">Instalacion de Software</button>
+            <button onclick="respaldoInfo()" class="hidden categoriaGeneralFinal" id="respaldoInfo">Respaldo de informacion</button>
+
+            <button onclick="telefonia()" class="hidden categoriaFallaFinal" id="telefonia">Telefonia</button>
+            <button onclick="sistema()" class="hidden categoriaFallaFinal" id="sistema">Sistema</button>
+            <button onclick="equipoComputo()" class="hidden categoriaFallaFinal" id="equipoComputo">Equipo de Computo</button>
+
+            <button onclick="reporteInfo()" class="hidden categoriaOtroFinal" id="reporteInfo">Reporte de Informacion</button>
+            <button onclick="cambioPass()" class="hidden categoriaOtroFinal" id="cambioPass">Cambio de Contraseña</button>
+            <button onclick="adquisicionEquipo()" class="hidden categoriaOtroFinal" id="adquisicionEquipo">Equipo de Computo</button>
+
+            <form class="container" method="POST">
+                <b>Request</b>
+                <input type="text" placeholder="Request" name="requestName" id="requestName" required >
+                <b>Location</b>
+                <input type="text" placeholder="Location" name="requestLocation" required> 
+                <b>Available Hours</b>
+                <input type="text" placeholder="Available Hours" name="requestSchedule" required> 
+                <b>Description</b>
+                <input type="text" placeholder="Description" name="requestDescription" required>
+                <input type="text" placeholder="Description" name="user" required hidden value="<%= user.username %>">
+                <button type="submit" class="button">Register Request</button>
+            </form>
+    </div>
+</body>
+<script>
+    generate = () => {
+        document.getElementsByClassName("categoria")[0].classList.add("visible");
+        document.getElementsByClassName("categoria")[1].classList.add("visible");
+        document.getElementsByClassName("categoria")[2].classList.add("visible");
+
+        document.getElementsByClassName("categoria")[0].classList.remove("hidden");
+        document.getElementsByClassName("categoria")[1].classList.remove("hidden");
+        document.getElementsByClassName("categoria")[2].classList.remove("hidden");
+    }
+
+    general = () => {
+        document.getElementsByClassName("categoria")[1].classList.remove("visible");
+        document.getElementsByClassName("categoria")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoria")[1].classList.add("hidden");
+        document.getElementsByClassName("categoria")[2].classList.add("hidden");
+
+        document.getElementsByClassName("categoriaGeneralFinal")[0].classList.remove("hidden");
+        document.getElementsByClassName("categoriaGeneralFinal")[1].classList.remove("hidden");
+        document.getElementsByClassName("categoriaGeneralFinal")[2].classList.remove("hidden");
+
+        document.getElementsByClassName("categoriaGeneralFinal")[0].classList.add("visible");
+        document.getElementsByClassName("categoriaGeneralFinal")[1].classList.add("visible");
+        document.getElementsByClassName("categoriaGeneralFinal")[2].classList.add("visible");
+    }
+
+    red = () => {
+        document.getElementsByClassName("categoriaGeneralFinal")[1].classList.remove("visible");
+        document.getElementsByClassName("categoriaGeneralFinal")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaGeneralFinal")[1].classList.add("hidden");
+        document.getElementsByClassName("categoriaGeneralFinal")[2].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Red";
+    }
+
+    instalacionSoftware = () => {
+        document.getElementsByClassName("categoriaGeneralFinal")[0].classList.remove("visible");
+        document.getElementsByClassName("categoriaGeneralFinal")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaGeneralFinal")[0].classList.add("hidden");
+        document.getElementsByClassName("categoriaGeneralFinal")[2].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Instalacion de Software";
+    }
+
+    respaldoInfo = () => {
+        document.getElementsByClassName("categoriaGeneralFinal")[0].classList.remove("visible");
+        document.getElementsByClassName("categoriaGeneralFinal")[1].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaGeneralFinal")[0].classList.add("hidden");
+        document.getElementsByClassName("categoriaGeneralFinal")[1].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Respaldo de Infdormacion";
+    }
+
+    falla = () => {
+        document.getElementsByClassName("categoria")[0].classList.remove("visible");
+        document.getElementsByClassName("categoria")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoria")[0].classList.add("hidden");
+        document.getElementsByClassName("categoria")[2].classList.add("hidden");
+
+        document.getElementsByClassName("categoriaFallaFinal")[0].classList.remove("hidden");
+        document.getElementsByClassName("categoriaFallaFinal")[1].classList.remove("hidden");
+        document.getElementsByClassName("categoriaFallaFinal")[2].classList.remove("hidden");
+
+        document.getElementsByClassName("categoriaFallaFinal")[0].classList.add("visible");
+        document.getElementsByClassName("categoriaFallaFinal")[1].classList.add("visible");
+        document.getElementsByClassName("categoriaFallaFinal")[2].classList.add("visible");
+    }
+
+    telefonia = () => {
+        document.getElementsByClassName("categoriaFallaFinal")[1].classList.remove("visible");
+        document.getElementsByClassName("categoriaFallaFinal")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaFallaFinal")[1].classList.add("hidden");
+        document.getElementsByClassName("categoriaFallaFinal")[2].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Telefonia";
+    }
+
+    sistema = () => {
+        document.getElementsByClassName("categoriaFallaFinal")[0].classList.remove("visible");
+        document.getElementsByClassName("categoriaFallaFinal")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaFallaFinal")[0].classList.add("hidden");
+        document.getElementsByClassName("categoriaFallaFinal")[2].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Sistema";
+    }
+
+    equipoComputo = () => {
+        document.getElementsByClassName("categoriaFallaFinal")[0].classList.remove("visible");
+        document.getElementsByClassName("categoriaFallaFinal")[1].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaFallaFinal")[0].classList.add("hidden");
+        document.getElementsByClassName("categoriaFallaFinal")[1].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Equipo de Computo";
+    }
+
+
+    otro = () => {
+        document.getElementsByClassName("categoria")[0].classList.remove("visible");
+        document.getElementsByClassName("categoria")[1].classList.remove("visible");
+
+        document.getElementsByClassName("categoria")[0].classList.add("hidden");
+        document.getElementsByClassName("categoria")[1].classList.add("hidden");
+
+        document.getElementsByClassName("categoriaOtroFinal")[0].classList.remove("hidden");
+        document.getElementsByClassName("categoriaOtroFinal")[1].classList.remove("hidden");
+        document.getElementsByClassName("categoriaOtroFinal")[2].classList.remove("hidden");
+
+        document.getElementsByClassName("categoriaOtroFinal")[0].classList.add("visible");
+        document.getElementsByClassName("categoriaOtroFinal")[1].classList.add("visible");
+        document.getElementsByClassName("categoriaOtroFinal")[2].classList.add("visible"); 
+    }
+
+    reporteInfo = () => {
+        document.getElementsByClassName("categoriaOtroFinal")[1].classList.remove("visible");
+        document.getElementsByClassName("categoriaOtroFinal")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaOtroFinal")[1].classList.add("hidden");
+        document.getElementsByClassName("categoriaOtroFinal")[2].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Reporte de Informacion";
+    }
+
+    cambioPass = () => {
+        document.getElementsByClassName("categoriaOtroFinal")[0].classList.remove("visible");
+        document.getElementsByClassName("categoriaOtroFinal")[2].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaOtroFinal")[0].classList.add("hidden");
+        document.getElementsByClassName("categoriaOtroFinal")[2].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Cambio de Contraseña";
+    }
+
+    adquisicionEquipo = () => {
+        document.getElementsByClassName("categoriaOtroFinal")[0].classList.remove("visible");
+        document.getElementsByClassName("categoriaOtroFinal")[1].classList.remove("visible");
+
+        document.getElementsByClassName("categoriaOtroFinal")[0].classList.add("hidden");
+        document.getElementsByClassName("categoriaOtroFinal")[1].classList.add("hidden");
+
+        document.getElementById("requestName").value = "Adquisicion de Equipo";
+    }
+
+</script>
+</html>

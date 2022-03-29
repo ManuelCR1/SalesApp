@@ -8,17 +8,15 @@
 <body>
     <div class="bg-img">
         <h1>Register</h1>
-        <% if(user.username == 'admin') { %>
-            <form class="container" method="POST">
-                <b>Username</b>
-                <input type="text" placeholder="Username" name="username" required>
-                <b>Password</b>
-                <input type="password" placeholder="Password" name="password" required> 
-                <b>Confirm Password</b>
-                <input type="password" placeholder="Confirm Password" name="confirm" required> 
-                <button type="submit" class="button">Register</button>
-            </form>
-        <% } %>
+        <form class="container" method="POST">
+            <b>Username</b>
+            <input type="text" placeholder="Username" name="username" required>
+            <b>Password</b>
+            <input type="password" placeholder="Password" name="password" required> 
+            <b>Confirm Password</b>
+            <input type="password" placeholder="Confirm Password" name="confirm" required> 
+            <button type="submit" class="button">Register</button>
+        </form>
     </div>
 </body>
 </html>

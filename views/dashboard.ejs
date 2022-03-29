@@ -8,47 +8,17 @@
 <body>
     <div class="bg-img">
         <h1>Dashboard</h1>
-        <h3>Welcome <%= user.username %>!</h3>
-        <% if(user.username == 'admin') { %>
-            <button>
-                <a href="/register">Register User</a>
-            </button>
-            <button>
-                <a href="/report">Reporte Semanal</a>
-            </button>
-        <% } %>
+        <h3>Welcome  <%= user.username %>!</h3>
         <button>
-            <a href="/registerProduct">Register Product</a>
+            <a href="/registerRequest">Register Request</a>
         </button>
         <button>
-            <a href="/sell">Vender Producto</a>
+            <a href="/viewRequests">View Requests</a>
         </button>
         <button>
             <a href="/">Logout</a>
         </button>
         <br>
-        <div class="catalogo">
-            <table>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Descripción</th>
-                    <th>Entregable (Si o No)</th>
-                    <th>Vendedor</th>
-                </tr>
-                <% for (var i=0; i < product.length; i++ ) { %>
-                <tr>
-                    <td><%= product[i].name %></td>
-                    <td><%= product[i].quantity %></td>
-                    <td><%= product[i].price %></td>
-                    <td><%= product[i].description %></td>
-                    <td><%= product[i].deliverable %></td>                     
-                    <td><%= product[i].seller.username %></td>
-                </tr>
-                <% } %>
-            </table>
-        </div>
     </div>
 </body>
 </html>
